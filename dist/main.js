@@ -10,16 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\nconsole.log(\"Hello World!\");\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
-
-/***/ }),
-
 /***/ "./src/style.css":
 /*!***********************!*\
   !*** ./src/style.css ***!
@@ -27,6 +17,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://my-webpack-project/./src/style.css?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nasync function getWeatherData() {\n    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${regionInput.value}&appid=0283d69eb46dcc648f8829505b35b707`, {mode: 'cors'});\n    const data = await response.json();\n    return data\n}\n\nfunction cleanData(rawData) {\n    let data = {}\n    data.name = rawData.name\n    data.main = rawData.main\n    data.coord = rawData.coord\n    data.country = rawData.sys.country\n    data.weather = rawData.weather[0].main\n    data.wind = rawData.wind\n    currentRegionData = data\n    update()\n}\n\nfunction submitRegion() {\n    let rawWeatherData = new Promise((resolve, reject) => {\n        resolve(getWeatherData());\n    });\n    rawWeatherData.then(rawData => {\n        if (rawData.cod == '200') {\n            cleanData(rawData)\n        } else {\n            alert(\"Invalid Region\")\n        }\n    })\n}\n\nfunction update() {\n    console.log(currentRegionData)\n}\n\nlet currentRegionData = {}\n\nconst regionInput = document.querySelector('#region-input')\ndocument.querySelector('#submit').addEventListener('click', submitRegion)\n\nsubmitRegion()\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
 
 /***/ })
 
