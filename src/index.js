@@ -33,11 +33,28 @@ function submitRegion() {
 
 function update() {
     console.log(currentRegionData)
+    regionInput.value = regionInput.value + ", " + currentRegionData.country
+    weather.textContent = currentRegionData.weather
+    feelsLike.textContent = currentRegionData.main.feels_like
+    temp.textContent = currentRegionData.main.temp
+    high.textContent = currentRegionData.main.temp_max
+    low.textContent = currentRegionData.main.temp_min
+    humidity.textContent = currentRegionData.main.humidity + "%"
+    windSpeed.textContent = currentRegionData.wind.speed
+    windGust.textContent = currentRegionData.wind.gust
 }
 
 let currentRegionData = {}
 
 const regionInput = document.querySelector('#region-input')
+const weather = document.querySelector('#weather')
+const feelsLike = document.querySelector('#feelslike')
+const temp = document.querySelector('#temp')
+const high = document.querySelector('#high')
+const low = document.querySelector('#low')
+const humidity = document.querySelector('#humidity')
+const windSpeed = document.querySelector('#windspeed')
+const windGust = document.querySelector('#windgust')
 document.querySelector('#submit').addEventListener('click', submitRegion)
 
 submitRegion()
