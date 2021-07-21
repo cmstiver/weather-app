@@ -31,20 +31,64 @@ function submitRegion() {
     })
 }
 
+function convert(value) {
+    let answer
+    if (conversion === "F") {
+        answer = convertToF(value)
+    } else if (conversion === "C") {
+        answer = convertToC(value)
+    }
+    return answer
+}
+
+function convertToC(value) {
+    let answer = value - 273.15
+    return Math.round(answer)
+}
+
+function convertToF(value) {
+    let answer = 1.8 * (value - 273) + 32
+    return Math.round(answer)
+}
+
+function convertWind(value) {
+    let answer
+    if (conversion === "F") {
+        answer = convertToMPH(value)
+    } else if (conversion === "C") {
+        answer = convertToKPH(value)
+    }
+    return answer
+}
+
+function convertToMPH(value) {
+    let answer = value * 2.237
+    answer = Math.round(answer)
+    return answer + " mph"
+}
+
+function convertToKPH(value) {
+    let answer = value * 3.6
+    answer = Math.round(answer + "kph")
+    return answer + " kph"
+}
+
 function update() {
     console.log(currentRegionData)
-    regionInput.value = regionInput.value + ", " + currentRegionData.country
+    if (!regionInput.value.includes(',')) {
+        regionInput.value = regionInput.value + ", " + currentRegionData.country
+    }
     weather.textContent = currentRegionData.weather
-    feelsLike.textContent = currentRegionData.main.feels_like
-    temp.textContent = currentRegionData.main.temp
-    high.textContent = currentRegionData.main.temp_max
-    low.textContent = currentRegionData.main.temp_min
+    feelsLike.textContent = convert(currentRegionData.main.feels_like) + "°" + conversion
+    temp.textContent = convert(currentRegionData.main.temp) + "°" + conversion
+    high.textContent = convert(currentRegionData.main.temp_max) + "°" + conversion
+    low.textContent = convert(currentRegionData.main.temp_min) + "°" + conversion
     humidity.textContent = currentRegionData.main.humidity + "%"
-    windSpeed.textContent = currentRegionData.wind.speed
-    windGust.textContent = currentRegionData.wind.gust
+    windSpeed.textContent = convertWind(currentRegionData.wind.speed)
 }
 
 let currentRegionData = {}
+let conversion = "F"
 
 const regionInput = document.querySelector('#region-input')
 const weather = document.querySelector('#weather')
@@ -56,5 +100,10 @@ const humidity = document.querySelector('#humidity')
 const windSpeed = document.querySelector('#windspeed')
 const windGust = document.querySelector('#windgust')
 document.querySelector('#submit').addEventListener('click', submitRegion)
+document.querySelector("#region-input").addEventListener("keyup", event => {
+    if(event.key !== "Enter") return;
+    document.querySelector("#submit").click();
+    event.preventDefault();
+});
 
 submitRegion()
