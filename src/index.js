@@ -12,7 +12,7 @@ function cleanData(rawData) {
     data.main = rawData.main
     data.coord = rawData.coord
     data.country = rawData.sys.country
-    data.weather = rawData.weather[0].main
+    data.weather = rawData.weather[0].description
     data.wind = rawData.wind
     currentRegionData = data
     update()
@@ -79,12 +79,34 @@ function update() {
         regionInput.value = regionInput.value + ", " + currentRegionData.country
     }
     weather.textContent = currentRegionData.weather
-    feelsLike.textContent = convert(currentRegionData.main.feels_like) + "°" + conversion
+    feelsLike.textContent = 'Feels Like: ' + convert(currentRegionData.main.feels_like) + "°" + conversion
     temp.textContent = convert(currentRegionData.main.temp) + "°" + conversion
     high.textContent = convert(currentRegionData.main.temp_max) + "°" + conversion
     low.textContent = convert(currentRegionData.main.temp_min) + "°" + conversion
-    humidity.textContent = currentRegionData.main.humidity + "%"
-    windSpeed.textContent = convertWind(currentRegionData.wind.speed)
+    humidity.textContent = 'Humidity: ' + currentRegionData.main.humidity + "%"
+    windSpeed.textContent = 'Wind: ' + convertWind(currentRegionData.wind.speed)
+}
+function whatsTheWeatherLike(condition) {
+    switch (condition) {
+        case 'clear sky':
+            break;
+        case 'few clouds':
+            break;
+        case 'scattered clouds':
+            break;
+        case 'broken clouds':
+            break;
+        case 'shower rain':
+            break;
+        case 'rain':
+            break;
+        case 'thunderstorm':
+            break;
+        case 'snow':
+            break;
+        case 'mist':
+            break;
+    }
 }
 
 let currentRegionData = {}
@@ -98,7 +120,6 @@ const high = document.querySelector('#high')
 const low = document.querySelector('#low')
 const humidity = document.querySelector('#humidity')
 const windSpeed = document.querySelector('#windspeed')
-const windGust = document.querySelector('#windgust')
 document.querySelector('#submit').addEventListener('click', submitRegion)
 document.querySelector("#region-input").addEventListener("keyup", event => {
     if(event.key !== "Enter") return;

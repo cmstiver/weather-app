@@ -1,5 +1,7 @@
 body {
     background-color: grey;
+    font-size: x-large;
+    font-family: monospace;
 }
 #inputs {
     position: relative;
@@ -34,7 +36,7 @@ body {
 }
 .tstats {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.3% 33.3% 33.3%;
     margin: auto;
     margin-top: 60px;
     height: 150px;
@@ -47,7 +49,7 @@ body {
 }
 .bstats {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     margin: auto;
     margin-top: 75px;
     height: 150px;
@@ -60,4 +62,20 @@ body {
 }
 .duelstats {
     line-height: 75px;
+}
+#high {
+    color: crimson;
+    font-size: 30px;
+    text-align: right;
+}
+#low {
+    color: darkblue;
+    font-size: 30px;
+    text-align: right;
+}
+#temp {
+    font-size: 50px;
+}
+#feelslike {
+    text-align: left;
 }
