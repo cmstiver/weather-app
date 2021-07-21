@@ -31,7 +31,7 @@ body {
     top: 9px;
     width: 30px;
 }
-#weather {
+#weatherstatus {
     margin: auto;
     margin-top: 100px;
     width: 100px;
@@ -41,7 +41,6 @@ body {
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
     margin: auto;
-    margin-top: 60px;
     height: 150px;
     width: 50%;
     min-width: 300px;
