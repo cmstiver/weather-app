@@ -14,6 +14,7 @@ function cleanData(rawData) {
     data.country = rawData.sys.country
     data.weather = rawData.weather[0].description
     data.wind = rawData.wind
+    data.icon = rawData.weather[0].icon
     currentRegionData = data
     update()
 }
@@ -85,6 +86,7 @@ function update() {
     low.textContent = convert(currentRegionData.main.temp_min) + "°" + conversion
     humidity.textContent = 'Humidity: ' + currentRegionData.main.humidity + "%"
     windSpeed.textContent = 'Wind: ' + convertWind(currentRegionData.wind.speed)
+    icon.src = `http://openweathermap.org/img/wn/${currentRegionData.icon}@2x.png`
 }
 function whatsTheWeatherLike(condition) {
     switch (condition) {
@@ -120,6 +122,7 @@ const high = document.querySelector('#high')
 const low = document.querySelector('#low')
 const humidity = document.querySelector('#humidity')
 const windSpeed = document.querySelector('#windspeed')
+const icon = document.querySelector('#weathericon')
 document.querySelector('#submit').addEventListener('click', submitRegion)
 document.querySelector("#region-input").addEventListener("keyup", event => {
     if(event.key !== "Enter") return;
