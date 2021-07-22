@@ -4,6 +4,7 @@ body {
     font-family: monospace;
     font-weight: bold;
     color: white;
+    word-wrap: unset;
 }
 #myVideo {
     position: fixed;
@@ -28,9 +29,9 @@ body {
     width: initial;
     text-align: center;
     border: black solid 3px;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: xx-large;
-    background-color: burlywood;
+    background-color: rgb(255, 255, 255);
 }
 #inputs img {
     position: absolute;
