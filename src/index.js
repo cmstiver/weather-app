@@ -86,26 +86,37 @@ function update() {
     humidity.textContent = 'Humidity: ' + currentRegionData.main.humidity + "%"
     windSpeed.textContent = 'Wind: ' + convertWind(currentRegionData.wind.speed)
     icon.src = `http://openweathermap.org/img/wn/${currentRegionData.icon}@2x.png`
+    whatsTheWeatherLike()
 }
-function whatsTheWeatherLike(condition) {
+function whatsTheWeatherLike() {
+    let condition = currentRegionData.weather
     switch (condition) {
         case 'clear sky':
+            video.src = 'img/sunny.mp4'
             break;
         case 'few clouds':
+            video.src = 'img/clouds.mp4'
             break;
         case 'scattered clouds':
+            video.src = 'img/clouds.mp4'
             break;
         case 'broken clouds':
+            video.src = 'img/clouds.mp4'
             break;
         case 'shower rain':
+            video.src = 'img/rain.mp4'
             break;
         case 'rain':
+            video.src = 'img/rain.mp4'
             break;
         case 'thunderstorm':
+            video.src = 'img/rain.mp4'
             break;
         case 'snow':
+            video.src = 'img/rain.mp4'
             break;
         case 'mist':
+            video.src = 'img/mist.mp4'
             break;
     }
 }
@@ -122,6 +133,7 @@ const low = document.querySelector('#low')
 const humidity = document.querySelector('#humidity')
 const windSpeed = document.querySelector('#windspeed')
 const icon = document.querySelector('#weathericon')
+const video = document.querySelector('#myVideo')
 document.querySelector('#submit').addEventListener('click', submitRegion)
 document.querySelector("#region-input").addEventListener("keyup", event => {
     if(event.key !== "Enter") return;
