@@ -75,7 +75,6 @@ function convertToKPH(value) {
 }
 
 function update() {
-    console.log(currentRegionData)
     if (!regionInput.value.includes(',')) {
         regionInput.value = regionInput.value + ", " + currentRegionData.country
     }

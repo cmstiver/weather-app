@@ -2,6 +2,16 @@ body {
     background-color: grey;
     font-size: x-large;
     font-family: monospace;
+    font-weight: bold;
+    color: white;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
 #inputs {
     position: relative;
@@ -33,6 +43,7 @@ body {
     margin-top: 100px;
     width: 100px;
     text-align: center;
+    text-transform: capitalize;
 }
 .tstats {
     display: grid;
@@ -63,18 +74,24 @@ body {
     line-height: 75px;
 }
 #high {
-    color: crimson;
     font-size: 30px;
     text-align: right;
+    color: rgb(231, 26, 26);
+    text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
 }
 #low {
-    color: darkblue;
     font-size: 30px;
     text-align: right;
+    color: rgb(51, 54, 233);
+    text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
 }
 #temp {
     font-size: 50px;
 }
 #feelslike {
     text-align: left;
+}
+.strokeme {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
