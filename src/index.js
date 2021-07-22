@@ -1,7 +1,7 @@
 import './style.css'
 
 async function getWeatherData() {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${regionInput.value}&appid=0283d69eb46dcc648f8829505b35b707`, {mode: 'cors'});
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${regionInput.value}&appid=0283d69eb46dcc648f8829505b35b707`, {mode: 'cors'});
     const data = await response.json();
     return data
 }
@@ -64,13 +64,13 @@ function convertWind(value) {
 
 function convertToMPH(value) {
     let answer = value * 2.237
-    answer = Math.round(answer)
+    answer = answer.toFixed(1)
     return answer + " mph"
 }
 
 function convertToKPH(value) {
     let answer = value * 3.6
-    answer = Math.round(answer + "kph")
+    answer = answer.toFixed(1)
     return answer + " kph"
 }
 
@@ -134,6 +134,16 @@ const humidity = document.querySelector('#humidity')
 const windSpeed = document.querySelector('#windspeed')
 const icon = document.querySelector('#weathericon')
 const video = document.querySelector('#myVideo')
+const convertButton = document.querySelector('#convert')
+convertButton.addEventListener('click', () => {
+    if (conversion === "C") {
+        conversion = "F"
+    } else {
+        conversion = "C"
+    }
+    convertButton.textContent = conversion + "°"
+    update()
+})
 document.querySelector('#submit').addEventListener('click', submitRegion)
 document.querySelector("#region-input").addEventListener("keyup", event => {
     if(event.key !== "Enter") return;
