@@ -1,3 +1,6 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*****************************************************************/
 body {
     background-color: grey;
     font-size: x-large;
@@ -38,6 +41,7 @@ body {
     right: 10px;
     top: 9px;
     width: 30px;
+    cursor: pointer;
 }
 #weatherstatus {
     margin: auto;
@@ -95,4 +99,18 @@ body {
 .strokeme {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+#convert {
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(246, 145, 12);
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+#convert:active {
+    background-color: rgb(172, 102, 12);
 }
