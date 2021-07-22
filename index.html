@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather</title>
 <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="img/rain.mp4" type="video/mp4">
+    </video>
     <div id="weatherstatus">
-        <div id="weather" class="stats">
+        <div id="weather" class="stats strokeme">
             Clear
         </div>
         <img id="weathericon" src="#">
     </div>
     <div class="tstats">
-        <div id="feelslike">
+        <div id="feelslike" class="strokeme">
             Feels
         </div>
-        <div id="temp">
+        <div id="temp" class="strokeme">
             Actual Temp
         </div>
         <div class="duelstats">
@@ -36,11 +39,11 @@
     </div>
     <div>
         <div class="bstats">
-            <div id="humidity">
+            <div id="humidity" class="strokeme">
                 Humidity
             </div>
             <div>
-                <div id="windspeed">
+                <div id="windspeed" class="strokeme">
                     Wind Speed
                 </div>
             </div>
